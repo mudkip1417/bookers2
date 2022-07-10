@@ -20,6 +20,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = User.find(current_user.id)
     @book = Book.new
+    @users = User.all
   end
 
   private
