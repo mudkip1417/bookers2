@@ -16,17 +16,19 @@
 
   		    <tbody>
 
+  		      <tr>
+
               <td>
 
-                <%= link_to user_path(current_user.id) do %>
+                <%= link_to user_path(@book.user.id) do %>
 
-                  <% if @user.profile_image.attached? %>
-                    <%= image_tag @user.profile_image, size: "100x100" %>
+                  <% if @book.user.profile_image.attached? %>
+                    <%= image_tag @book.user.profile_image, size: "100x100" %>
                   <% else %>
                     <%= image_tag 'no_image', size: "100x100" %>
                   <% end %>
                   <br>
-                  <%= current_user.name %>
+                  <%= @book.user.name %>
 
                 <% end %>
 
@@ -51,10 +53,20 @@
               <td>
 
                 <% if @book.user == current_user %>
+                  <%= link_to "Edit", edit_book_path(@book.id), class:'btn btn-sm btn-success' %>
+                <% end %>
+
+              </td>
+
+              <td>
+
+                <% if @book.user == current_user %>
                   <%= link_to "Destroy", book_path(@book.id), class:'btn btn-sm btn-danger', method: :delete %>
                 <% end %>
 
               </td>
+
+            </tr>
 
   		    </tbody>
 

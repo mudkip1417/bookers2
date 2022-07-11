@@ -38,10 +38,10 @@
 
                 <td>
 
-                  <%= link_to user_path(current_user.id) do %>
+                  <%= link_to user_path(book.user.id) do %>
 
-                    <% if @user.profile_image.attached? %>
-                      <%= image_tag @user.profile_image, size: "100x100" %>
+                    <% if book.user.profile_image.attached? %>
+                      <%= image_tag book.user.profile_image, size: "100x100" %>
                     <% else %>
                       <%= image_tag 'no_image', size: "100x100" %>
                     <% end %>
@@ -52,7 +52,7 @@
 
                 <td>
 
-                  <%= link_to book_path(current_user.id) do %>
+                  <%= link_to book_path(book.id) do %>
 
                     <%= book.title %>
 
