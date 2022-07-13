@@ -5,7 +5,7 @@
 
 
 
-<%= render 'books/user_info', book:@book %>
+<%= render 'books/user_info', book:@book, user:@user %>
 
     <div class="col-md-8 offset-md-1">
 
@@ -33,11 +33,7 @@
 
                   <%= link_to user_path(user.id) do %>
 
-                    <% if user.profile_image.attached? %>
-                      <%= image_tag user.profile_image, size: "100x100" %>
-                    <% else %>
-                      <%= image_tag 'no_image', size: "100x100" %>
-                    <% end %>
+                    <%= image_tag user.get_profile_image(100,100) %>
 
                   <% end %>
 
